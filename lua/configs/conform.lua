@@ -1,8 +1,15 @@
 local options = {
-  formatters_by_ft = {
+    formatters_by_ft = {
     lua = { "stylua" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    php = { "phpcsfixer" }, -- or any php formatter you have installed via mason
+    css = { "prettier" },
+    javascript = { "prettier" },
+    typescript = { "prettier" },
+    vue = { "prettier" },
+    html = { "htmlbeautifier" },
+    json = { "prettier" },
+    nginx = { "nginx_config_formatter" },
+    -- add more as needed
   },
 
   -- format_on_save = {
