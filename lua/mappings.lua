@@ -3,7 +3,7 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
-
+local M = {}
 local last_block_line = 0
 
 vim.keymap.set("n", "<leader>vo", function()
@@ -40,4 +40,6 @@ M.misc = {
     },
   },
 }
+
+return M
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
