@@ -3,7 +3,6 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
-local M = {}
 local last_block_line = 0
 
 vim.keymap.set("n", "<leader>vo", function()
@@ -24,22 +23,11 @@ vim.keymap.set("n", "<leader>vo", function()
   last_block_line = vim.fn.line "."
 end, { desc = "Select next { ... } block" })
 
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action (Quick Fix)" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("t", "<leader>t", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
 map("n", "<leader>f", "<cmd> Telescope find_files<cr>", { desc = "find files" })
 map("n", "<leader>ff", "no_op", { desc = "Removed space+ff" })
-
-M.misc = {
-  n = {
-    ["<leader>fm"] = {
-      function()
-        require("conform").format()
-      end,
-      "Format file",
-    },
-  },
-}
-
-return M
+map("n", "<leader>co}", ":%s#//.*##g", { desc = "Removed comments from the file" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
